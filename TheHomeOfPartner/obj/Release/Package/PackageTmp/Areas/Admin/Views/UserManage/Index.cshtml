@@ -1,0 +1,81 @@
+﻿@model IEnumerable<TheHomeOfPartner.Models.User>
+
+@{
+    ViewBag.Title = "用户管理";
+}
+
+<h2>用户管理</h2>
+
+<p>
+    @Html.ActionLink("添加用户", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.UserLabel)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PhotoUrl)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UserName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UserSex)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UserPassWord)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PasswordPalt)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PhoneNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UserType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RegisterDate)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.UserLabel)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PhotoUrl)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UserName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UserSex)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UserPassWord)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PasswordPalt)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PhoneNumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UserType)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RegisterDate)
+        </td>
+        <td>
+            @Html.ActionLink("编辑", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("详情", "Details", new { id=item.Id }) |
+            @Html.ActionLink("删除", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>

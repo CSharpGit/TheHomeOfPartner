@@ -1,0 +1,57 @@
+﻿@model IEnumerable<TheHomeOfPartner.Models.ChatLog>
+
+@{
+    ViewBag.Title = "聊天记录管理";
+}
+
+<h2>聊天记录管理</h2>
+
+<p>
+    @Html.ActionLink("添加记录", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.User.UserLabel)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UserName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ChatContent)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ChatTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UserType)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.User.UserLabel)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UserName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ChatContent)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ChatTime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UserType)
+        </td>
+        <td>
+            @Html.ActionLink("编辑", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("详情", "Details", new { id=item.Id }) |
+            @Html.ActionLink("删除", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,64 @@
+﻿@model TheHomeOfPartner.Models.Reply
+
+@{
+    ViewBag.Title = "删除评论";
+}
+
+<h2>删除评论</h2>
+
+<h3 style="color:red;">请注意，您的删除操作将无法恢复!</h3>
+<div>
+    <h4>评论信息</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Topic.Title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Topic.Title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.User.UserLabel)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.User.UserLabel)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ReContent)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ReContent)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Approval)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Approval)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ReplyDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ReplyDate)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="删除" class="btn btn-danger" /> |
+            @Html.ActionLink("返回评论列表", "Index")
+        </div>
+    }
+</div>

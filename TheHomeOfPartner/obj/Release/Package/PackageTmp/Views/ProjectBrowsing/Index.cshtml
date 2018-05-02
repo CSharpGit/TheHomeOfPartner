@@ -1,0 +1,31 @@
+﻿@model IEnumerable<TheHomeOfPartner.Models.Project>
+@{
+    if (Session["UserName"] != null)
+    {
+        Layout = "~/Views/Shared/_Layout2.cshtml";
+    }
+    ViewBag.Title = "项目浏览";
+}
+<style type="text/css">
+    p {
+        text-indent: 2em; /*em是相对单位，2em即现在一个字大小的两倍*/
+    }
+</style>
+<div class="row" style="margin:6.5em 1em 1em 1em">
+    @foreach (var item in Model)
+    {
+        <div class="col-md-3 col-sm-6">
+            <div class="col-md-12">
+                <h4 class="text-center"><b>@item.PName</b></h4>
+                <h5><b>我们希望你能做到：</b></h5>
+                <p>@item.ProjectRequirement</p>
+                <h5><b>项目类型：</b>@item.ProjectType</h5>
+                <h5><b>开发语言：</b>@item.DevelopLanguage</h5>
+                <h5><b>项目定价：</b>@item.Price</h5>
+                <h5><b>发布日期：</b>@item.ReleaseDate</h5>
+                <h4 class="text-center">@Html.ActionLink("联系客户", "Index", "Chat",new {Id = item.Id},null)</h4>
+            </div>
+        </div>
+    }
+</div>
+

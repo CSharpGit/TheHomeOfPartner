@@ -1,0 +1,66 @@
+﻿@model TheHomeOfPartner.Models.Topic
+
+@{
+    ViewBag.Title = "话题详情";
+}
+
+<h2>话题详情</h2>
+
+<div>
+    <h4>话题信息</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.UserId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UserId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Content)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Content)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PictureURL)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PictureURL)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.KeyWord)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.KeyWord)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ReleaseDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ReleaseDate)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("编辑", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("返回话题列表", "Index")
+</p>

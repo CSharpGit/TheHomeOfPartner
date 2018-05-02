@@ -1,0 +1,32 @@
+﻿@model IEnumerable<TheHomeOfPartner.Models.Team>
+@{
+    if (Session["UserName"] != null)
+    {
+        Layout = "~/Views/Shared/_Layout2.cshtml";
+    }
+    ViewBag.Title = "开发团队";
+}
+<style type="text/css">
+    p {
+        text-indent: 2em; /*em是相对单位，2em即现在一个字大小的两倍*/
+    }
+</style>
+<div class="row" style="margin:6.5em 1em 1em 1em">
+    @foreach (var item in Model)
+    {
+        <div class="col-md-3 col-sm-6">
+            <div class="col-md-12">
+                <h4 class="text-center"><b>@item.TeamName</b></h4>
+                <h5><b>我们需要这样的你：</b></h5>
+                <p>@Html.DisplayFor(modelItem => item.SkillsRequirement)</p>
+                <h5><b>意向项目：</b>@Html.DisplayFor(modelItem => item.PName)</h5>
+                <h5><b>需求人数：</b>@Html.DisplayFor(modelItem => item.RequiredNumber)</h5>
+                <h5><b>发布日期：</b>@Html.DisplayFor(modelItem => item.ReleaseDate)</h5>
+                <h5><b>截止日期：</b>@Html.DisplayFor(modelItem => item.DueDate)</h5>
+                <h4 class="text-center">@Html.ActionLink("我要加入", "JoinTeam", new { id = item.Id })</h4>
+            </div>
+        </div>
+    }
+</div>
+
+

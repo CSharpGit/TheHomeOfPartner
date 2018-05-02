@@ -1,0 +1,138 @@
+﻿@model IEnumerable<TheHomeOfPartner.Models.Topic>
+@{
+    if (Session["UserName"] != null)
+    {
+        Layout = "~/Views/Shared/_Layout2.cshtml";
+    }
+    ViewBag.Title = "论坛";
+}
+@section ScriptsHeader{
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $(".response").hide();
+            $(".bt").click(function () {
+                $(".response").toggle();
+            });
+        });
+    </script>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/luntan.css" rel="stylesheet" />
+}
+<div class="row">
+    <div class="container">
+        <div>
+            <div class="theme">
+                <div class="theme-con">
+                    <div class="theme-nav">
+                        <a href="" class="theme-nav-list current">推荐</a>
+                        <a href="" class="theme-nav-list">最新</a>
+                        <a href="" class="btn theme-nav-btn">发表话题</a>
+                    </div>
+                    <ul>
+                        @{int ReCount = 0; }
+                        @foreach (var Item in Model)
+                        {
+                            <li class="theme-list clearfix">
+                                <div class="theme-list-img">
+                                    <a href="" class="headportrait">
+                                        <img src=@Item.PictureURL alt="" class="use-img" height="200" width="242">
+                                    </a>
+                                </div>
+                                <div class="theme-list-con">
+                                    <div class="title">
+                                        @foreach (var u in ViewBag.users)
+                                        {
+                                            if (u.Id == Item.UserId)
+                                            {
+                                                <p><img src=@u.PhotoUrl height="30" width="30" class="img-circle" />@u.UserLabel</p>
+                                            }
+                                        }
+                                        <a href="" class="title-name">@Item.Title</a>
+                                        <img src="~/Images/T1LSCvBKE_1R4cSCrK.png" alt="" class="stamp">
+                                    </div>
+                                    <div class="content">
+                                        <p class="title-content">@Item.Content)</p>
+                                    </div>
+                                    <div class="auth-msg clearfix">
+                                        @{var timespan = (DateTime.Now - Item.ReleaseDate).Minutes;}
+                                        <span class="time txt">@timespan 分钟前</span>
+                                        <a href="" class="time txt">@Item.KeyWord</a>
+                                        @foreach (var r in ViewBag.replies)
+                                        {
+                                            if (r.TopicId == Item.Id)
+                                            {
+                                                ReCount++;
+                                            }
+                                        }
+                                        <button class="comeform txt bt">@ReCount 条评论</button>
+                                        @{ ReCount = 0;}
+                                        <span class="status txt"></span>
+                                        <p class="see">
+                                            <span class="numb view"><i></i>3688</span>
+                                        </p>
+                                    </div>
+                                </div>
+                            </li>
+
+
+                            <li class="theme-list clearfix response">
+                                <div class="theme-list-img">
+                                    @*<a href="" class="headportrait">
+                                            <img src="~/Images/suoluetu.svg" alt="" class="use-img">
+                                        </a>*@
+                                </div>
+                                <div class="theme-list-con">
+                                    @foreach (var r in ViewBag.replies)
+                                    {
+                                        if (r.TopicId == Item.Id)
+                                        {
+                                            <div class="title">
+                                                @foreach (var u in ViewBag.users)
+                                                {
+                                                    if (u.Id == r.UserId)
+                                                    {
+                                                        <p><img src=@u.PhotoUrl height="30" width="30" class="img-circle" />@u.UserLabel</p>
+                                                    }
+                                                }
+                                                @*<img src="~/Images/T1LSCvBKE_1R4cSCrK.png" alt="" class="stamp">*@
+                                            </div>
+                                            <div class="content">
+                                                <p class="title-content">@r.ReContent</p>
+                                            </div>
+                                            <div class="auth-msg clearfix">
+                                                @{var timespan2 = (DateTime.Now - r.ReplyDate).Minutes;}
+                                                <span class="time txt">@timespan2 分钟前</span>
+                                                <a href="" class="time txt">@Item.KeyWord</a>
+                                                <span class="status txt"></span>
+                                                <p class="see">
+                                                    <span class="numb view"><i></i>3688</span>
+                                                </p>
+                                            </div>
+                                        }
+                                    }
+                                    @using (Html.BeginForm())
+                                    {
+                                        @Html.AntiForgeryToken()
+                                        @Html.Hidden("TopicId", Item.Id)
+                                            <div class="auth-msg clearfix">
+                                                <div class="row">
+                                                    <input class="col-md-9" id="ReContent" name="ReContent"  type="text" value="">
+                                                    @*@Html.Editor("ReContent", "", new { @style = "width:300px;" })*@
+                                                    <button type="submit" class="btn-primary col-md-3">评论</button>
+                                                </div>
+                                                
+                                            </div>
+                                    }
+                                </div>
+                            </li>
+                        }
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+<!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
+<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>

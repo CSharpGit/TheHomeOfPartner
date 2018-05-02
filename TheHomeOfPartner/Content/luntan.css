@@ -1,0 +1,159 @@
+body {
+    font-size: 14px;
+    color: #333;
+}
+
+input {
+    min-width:12.5em;
+}
+
+a {
+    outline: 0;
+    text-decoration: none;
+}
+
+li {
+    list-style-type: none;
+}
+
+img {
+    border: 0;
+}
+
+.theme {
+    background: #fff;
+    border: 1px solid #e6e6e6;
+    margin-top: 150px;
+}
+
+.theme .theme-con {
+    margin: 20px 30px;
+}
+
+.theme .theme-con .theme-nav .theme-nav-list {
+    color: #333;
+    display: inline-block;
+    line-height: 30px;
+    padding: 0 10px;
+}
+
+.theme .theme-con .theme-nav .theme-nav-list .current {
+    background: #f3f3f3;
+}
+
+.btn {
+    display: inline-block;
+    margin-bottom: 0;
+    font-size: 14px;
+    height: 38px;
+    line-height: 38px;
+    text-align: center;
+    cursor: pointer;
+    background-color: #212121;
+    border: 1px solid #212121;
+    color: #fff;
+    padding: 0;
+    width: 148px;
+    border-radius: 0;
+}
+
+.theme .theme-con .theme-nav .theme-nav-btn {
+    float: right;
+    height: 30px;
+    line-height: 30px;
+    width: 116px;
+    font-size: 12px;
+    text-decoration: none;
+}
+
+.theme .theme-con ul li {
+    position: relative;
+    padding-top: 16px;
+}
+
+.theme .theme-con ul li .theme-list-img {
+    width: 242px;
+    float: left;
+    position: relative;
+}
+
+.theme .theme-con ul li .theme-list-con {
+    margin-left: 252px;
+}
+
+.theme .theme-con ul li .theme-list-con .title {
+    margin-top: 10px;
+}
+
+.theme .theme-con ul li .theme-list-con .title .title-name {
+    display: inline-block;
+    width: auto;
+    max-width: 524px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    _zoom: 1;
+    color: #333;
+    font-size: 16px;
+}
+
+.theme .theme-con ul li .theme-list-con .title .stamp {
+    margin-left: 5px;
+}
+
+.theme .theme-con ul li .theme-list-con .title img {
+    margin: -12px 3px 0 0;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.theme .theme-con ul li .theme-list-con .auth-msg {
+    line-height: 18px;
+    margin: 6px 0 0;
+    padding-bottom: 11px;
+    border-bottom: 1px solid #e6e6e6;
+}
+
+.theme .theme-con ul li .theme-list-con .auth-msg .user-name {
+    font-size: 12px;
+    color: #8c8c8c;
+}
+
+.theme-con ul li .theme-list-con .auth-msg a {
+    float: left;
+    vertical-align: middle;
+}
+
+.theme .theme-con ul li .theme-list-con .auth-msg .txt {
+    font-size: 12px;
+    color: #8c8c8c;
+    margin-left: 5px;
+}
+
+.theme .theme-con ul li .theme-list-con .auth-msg .numb {
+    float: right;
+    _display: inline-block;
+    font-size: 12px;
+    color: #9da5ab;
+    height: 18px;
+    margin-top: 3px;
+}
+
+
+
+.theme .theme-con ul li .theme-list-con .auth-msg .numb.view i {
+    width: 16px;
+    height: 10px;
+    background-position: -2px -1px;
+}
+
+.theme .theme-con ul li .theme-list-con .auth-msg .numb i {
+    display: inline-block;
+    margin: 3px 5px 0;
+    background: url(../Images/invitation_pic.png) 0 0 no-repeat;
+    vertical-align: middle;
+}
+
+p {
+    text-indent: 2em; /*em是相对单位，2em即现在一个字大小的两倍*/
+}

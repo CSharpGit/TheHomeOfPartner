@@ -1,0 +1,51 @@
+﻿@model TheHomeOfPartner.Models.User
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>登录</title>
+    @Styles.Render("~/Content/css-login")
+</head>
+
+<body>
+    <div class="container">
+        <div class="front side">
+            <div class="content">
+                <h1>加入我们</h1>
+                <p>
+                    如果您是开发人员，您将与技术一流的开发人员打交道，只要您开发能力强，您就可以为客户开发项目，如果您缺少队友，您还可以创建团队进行组队开发！
+                </p>
+                <p>
+                    如果您有项目，您将可以发布您的需求，让技术一流的程序员来给你开发，只要你有项目，就不怕找不到开发人员！
+                </p>
+                <p>
+                    如果您是学生，您将可以查看技术一流的开发人员开发的完整项目，您还可以参与论坛，向一流的技术人员学习 先进技术！
+                </p>
+            </div>
+        </div>
+        <div class="back side">
+            <div class="content">
+                <h1>登录</h1>
+                @using (Html.BeginForm())
+                {
+                    @Html.AntiForgeryToken()
+                    <label>您注册的用户名：</label>
+                    @Html.EditorFor(model => model.UserLabel, new { htmlAttributes = new { @placeholder = "用户名" } })
+                    @Html.ValidationMessageFor(model => model.UserLabel, "", new { @class = "text-danger" })
+                    <label>请输入您的密码：</label>
+                    @Html.EditorFor(model => model.UserPassWord, new { htmlAttributes = new { @placeholder = "密码" } })
+                    @Html.ValidationMessageFor(model => model.UserPassWord, "", new { @class = "text-danger" })
+                    <button type="submit" class="white-mode">登录</button>
+                }
+                <p style="margin-top:70px">还没有账号？@Html.ActionLink("立即注册", "Register", "Account")</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

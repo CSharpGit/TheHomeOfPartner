@@ -1,0 +1,93 @@
+﻿@model IEnumerable<TheHomeOfPartner.Models.ReachAgreement>
+@{
+    Layout = null;
+    ViewBag.Title = "项目展示";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>项目展示-创友之家</title>
+    <link href="~/Content/normalize.css" rel="stylesheet" />
+    <link href="~/Content/font-awesome.4.6.0.css" rel="stylesheet" />
+    <link href="~/Content/style1.css" rel="stylesheet" />
+    <script src="~/Scripts/modernizr.custom.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <button id="menu-toggle" class="menu-toggle"><span>Menu</span></button>
+        <div id="theSidebar" class="sidebar">
+            <button class="close-button fa fa-fw fa-close"></button>
+            <h1>创</h1>
+            <h1>友</h1>
+            <h1>之</h1>
+            <h1>家</h1>
+            <h1>项</h1>
+            <h1>目</h1>
+            <h1>展</h1>
+            <h1>示</h1>
+            <div style="margin-top:40px;">
+                <a href="../../Home/Index"><img src="~/Images/logo.png" alt=""></a>
+            </div>
+        </div>
+
+        <div id="theGrid" class="main">
+            <section class="grid">
+                <header class="top-bar">
+                    <h2 class="top-bar__headline">最新的项目</h2>
+                    <div class="filter">
+                        <span>排序：</span>
+                        <span class="dropdown">最受欢迎</span>
+                    </div>
+                </header>
+
+                @foreach (var item in Model)
+                {
+                    <a class="grid__item" href="#">
+                        <h2 class="title title--preview">@Html.DisplayFor(modelItem => item.Project.PName)</h2>
+                        <div class="loader"></div>
+                        <span class="category">@Html.DisplayFor(modelItem => item.Team.TeamName)</span>
+                        <div class="meta meta--preview">
+                            <img class="meta__avatar" src="~/Images/authors/1.png" alt="author01" />
+                            <span class="meta__date"><i class="fa fa-calendar-o"></i> @Html.DisplayFor(modelItem => item.EndDate)</span>
+                            <span class="meta__reading-time"><i class="fa fa-clock-o"></i> @Html.DisplayFor(modelItem => item.Project.DevelopLanguage)</span>
+                        </div>
+                    </a>
+                }
+            </section>
+
+            <section class="content">
+
+                <div class="scroll-wrap">
+                    @foreach (var item in Model)
+                    {
+                        <article class="content__item">
+                            <span class="category category--full">@item.Project.PName</span>
+                            <h2 class="title title--full">@item.Project.Price &amp; @item.AgreementPrice</h2>
+                            <div class="meta meta--full">
+                                <img class="meta__avatar" src=@item.ProjectPictureURL alt=@item.Project.PName height="200" width="400"/>
+                                <span class="meta__author">@item.Team.TeamName</span>
+                                <span class="meta__date"><i class="fa fa-calendar-o"></i>@item.StartDate</span>
+                                <span class="meta__reading-time"><i class="fa fa-clock-o"></i>@item.EndDate</span>
+                            </div>
+                            <p>@item.Project.ProjectRequirement</p>
+                        </article>
+                    }
+                </div>
+
+                <button class="close-button"><i class="fa fa-close"></i><span>关闭</span></button>
+
+            </section>
+
+        </div>
+
+    </div><!-- /container -->
+    <script src="~/Scripts/classie.js"></script>
+    <script src="~/Scripts/display-main.js"></script>
+</body>
+</html>

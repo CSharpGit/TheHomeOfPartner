@@ -1,0 +1,73 @@
+﻿@model TheHomeOfPartner.Models.Topic
+
+@{
+    ViewBag.Title = "删除话题";
+}
+
+<h2>删除话题</h2>
+
+<h3 style="color:red;">请注意，您的删除操作将无法恢复!</h3>
+<div>
+    <h4>话题信息</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.UserId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UserId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Content)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Content)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PictureURL)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PictureURL)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.KeyWord)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.KeyWord)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ReleaseDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ReleaseDate)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="确定删除" class="btn btn-danger" /> |
+            @Html.ActionLink("返回话题列表", "Index")
+        </div>
+    }
+</div>

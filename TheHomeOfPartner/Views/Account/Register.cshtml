@@ -1,0 +1,73 @@
+﻿@model TheHomeOfPartner.Models.User
+
+@{
+    ViewBag.Title = "用户注册";
+}
+
+<div class="container-fluid" style="margin-top:150px;">
+    <h2 class="text-center">用户注册</h2>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-8">
+                    @Html.EditorFor(model => model.UserLabel, new { htmlAttributes = new { @class = "form-control", @placeholder = "用户名" } })
+                    @Html.ValidationMessageFor(model => model.UserLabel, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-8">
+                    @Html.EditorFor(model => model.UserName, new { htmlAttributes = new { @class = "form-control", @placeholder = "真实姓名" } })
+                    @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-8">
+                    @Html.EditorFor(model => model.UserSex, new { htmlAttributes = new { @class = "form-control", @placeholder = "性别" } })
+                    @Html.ValidationMessageFor(model => model.UserSex, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-8">
+                    @Html.EditorFor(model => model.UserPassWord, new { htmlAttributes = new { @class = "form-control", @placeholder = "密码" } })
+                    @Html.ValidationMessageFor(model => model.UserPassWord, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-8">
+                    @Html.EditorFor(model => model.PasswordPalt, new { htmlAttributes = new { @class = "form-control", @placeholder = "确认密码" } })
+                    @Html.ValidationMessageFor(model => model.PasswordPalt, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-8">
+                    @Html.EditorFor(model => model.PhoneNumber, new { htmlAttributes = new { @class = "form-control", @placeholder = "电话" } })
+                    @Html.ValidationMessageFor(model => model.PhoneNumber, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-8">
+                    @Html.EditorFor(model => model.UserType, new { htmlAttributes = new { @class = "form-control", @placeholder = "用户类型" } })
+                    @Html.ValidationMessageFor(model => model.UserType, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-8 col-md-4">
+                    <input type="submit" value="提交注册信息" class="btn btn-primary" />
+                </div>
+            </div>
+        </div>
+    }
+</div>

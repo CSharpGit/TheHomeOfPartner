@@ -1,0 +1,83 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - 创友之家</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/jquery")
+    @RenderSection("scriptsHeader", required: false)
+</head>
+<body>
+    <nav class="navbar navbar-fixed-top navbar-inverse">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#collapse-1" aria-expanded="false">
+                    <span class="sr-only">切换导航</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="../../Home/Index" class="navbar-brand">
+                    <img src="~/Images/logo.png" alt="">
+                </a>
+            </div>
+            <div class="collapse navbar-collapse" id="collapse-1">
+                <ul class="nav navbar-nav">
+                    <li class="active">
+                        @Html.ActionLink("主页", "Index", "Home")
+                    </li>
+                    <li>
+                        @Html.ActionLink("论坛", "Index", "Forum")
+                    </li>
+                    <li>
+                        @Html.ActionLink("项目展示", "Index", "ProjectDisplay")
+                    </li>
+                    <li>
+                        @Html.ActionLink("团队招募", "Index", "Recruit")
+                    </li>
+                    <li>
+                        @Html.ActionLink("项目接单", "Index", "ProjectBrowsing")
+                    </li>
+                    <li>
+                    @Html.ActionLink(Session["UserName"].ToString(), "Index", "UserManage", new { area = "Admin" }, new { @class = "active" })
+                    @*@Html.ActionLink(Session["UserName"].ToString(), "Index", "Home")*@
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    @RenderBody()
+    @RenderSection("scriptsFooter", required: false)
+    <hr />
+    <footer>
+        <ul class="footer-qr">
+            <li><img src="~/Images/footer/weibo.jpg" alt=""><p>微信公众号</p></li>
+            <li>
+                <img src="~/Images/footer/weichat.jpg" alt="">
+                <p>官方微博</p>
+            </li>
+            <li>
+                <img src="~/Images/footer/weichat.jpg" alt="">
+                <p>创友团队</p>
+            </li>
+        </ul>
+        <ul class="footerMenu">
+            <li class="active">@Html.ActionLink("主页", "Index", "Home")</li>
+            <li>@Html.ActionLink("论坛", "Index", "Forum")</li>
+            <li>@Html.ActionLink("项目展示", "Index", "ProjectDisplay")</li>
+            <li>@Html.ActionLink("团队招募", "Index", "Recruit")</li>
+            <li>@Html.ActionLink("项目接单", "Index", "ProjectBrowsing")</li>
+        </ul>
+        <p>Copyright@2017-2018chuangyouzhijia</p>
+        <br>
+        创友之家开发者QQ群:
+        <span style="color: #b5b5b5;">559824238、474862529</span>
+        、2015478562（满）、2545869654（满）、8865945721（满）
+        <br>
+        商务合作：<a href="">bd@dalkfdj.com</a>
+    </footer>
+</body>
+</html>
